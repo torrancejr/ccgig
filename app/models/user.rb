@@ -8,5 +8,6 @@ class User < ApplicationRecord
   has_many :quotes
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :username, presence: true
   validates :email, presence: true, format: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 end

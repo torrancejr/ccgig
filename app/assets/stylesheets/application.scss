@@ -29,3 +29,20 @@ h3
      top: 40%;
  }
 // 'Shrikhand', cursive;
+
+$hero-height: 60vh;
+
+.hero-section {
+  background: url('https://static.pexels.com/photos/196464/pexels-photo-196464.jpeg') 50% no-repeat;
+  background-size: cover;
+  height: $hero-height;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .hero-section-text {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #2c3840;
+  }
+}

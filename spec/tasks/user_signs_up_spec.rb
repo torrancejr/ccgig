@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "User signs up" do
   scenario 'a new user signs up' do
-    visit root_path
+    visit root_index
 
     click_link 'Sign Up'
 

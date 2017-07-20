@@ -6,4 +6,13 @@ Rails.application.routes.draw do
 
   resources :welcome
   resources :users
+
+  namespace :admin do
+    resources :tasks
+    resources :users
+  end
+
+  resources :tasks do
+    resources :quotes
+  end
 end
