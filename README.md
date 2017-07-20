@@ -1,3 +1,7 @@
+![Build Status](https://codeship.com/projects/e1fe8210-4f28-0135-b224-1efcab282058/status?branch=master)
+![Code Climate](https://codeclimate.com/github/torrancejr/ccgig.png)
+![Coverage Status](https://coveralls.io/repos/torrancejr/ccgig/badge.png)
+
 # README
 
 This README would normally document whatever steps are necessary to get the
