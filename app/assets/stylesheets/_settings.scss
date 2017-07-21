@@ -51,13 +51,13 @@ $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #030D4F,
-  secondary: #CEECEF,
+  secondary: #22bb5b,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
 );
 $light-red: #FB0C06;
-$light-grey: #E7EDEA;
+$light-green: #22bb5b;
 $light-pink: #FF6B6B;
 $light-yellow: #FFC52C;
 $light-navy: #030D4F;
@@ -114,7 +114,7 @@ $header-font-family: $body-font-family;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: 'Pacifico', cursive;
-$header-color: #FF6B6B;
+$header-color: #22bb5b;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
@@ -147,7 +147,7 @@ $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-$anchor-color: #FF6B6B;
+$anchor-color: #22bb5b;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;

@@ -26,6 +26,7 @@ gem 'simplecov'
 gem 'font-awesome-sass'
 gem 'coveralls'
 gem 'carrierwave', '~> 1.1'
+gem 'font-awesome-sass'
 
 group :test do
   gem 'coveralls', require: false

@@ -17,6 +17,10 @@
  *= require foundation_and_overrides
 
  */
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+ @import "settings";
+@import "foundation";
 
 h3
   {
@@ -28,21 +32,162 @@ h3
      position: absolute;
      top: 40%;
  }
+
+ ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
 // 'Shrikhand', cursive;
+// .fa-users {
+//   color: #BF0C43
+// }
+// .fa-handshake-o {
+//   color: #F9BA15
+// }
+// .fa-thumbs-o-up {
+//   color: #8EAC00
+// }
 
-$hero-height: 60vh;
+$menu-hover-lines-transition: all 0.35s ease;
+$menu-hover-lines-border-width: 3px;
 
-.hero-section {
-  background: url('https://static.pexels.com/photos/196464/pexels-photo-196464.jpeg') 50% no-repeat;
-  background-size: cover;
-  height: $hero-height;
+.menu-hover-lines {
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: $menu-hover-lines-transition;
 
-  .hero-section-text {
-    color: #ffffff;
-    text-shadow: 1px 1px 2px #2c3840;
+  li a {
+    padding: 0.75rem 0;
+    color: rgba(#030D4F, 0.5);
+    position: relative;
+    margin-left: 1rem;
+  }
+
+  li:first-child a {
+    margin-left: 0;
+  }
+
+  li.active > a {
+    background-color: transparent;
+  }
+
+  a:before,
+  a::after {
+    height: $menu-hover-lines-border-width;
+    position: absolute;
+    content: '';
+    transition: $menu-hover-lines-transition;
+    background-color: #030D4F;
+    width: 0;
+  }
+
+  a::before {
+    top: 0;
+    left: 0;
+  }
+
+  a::after {
+    bottom: 0;
+    right: 0;
+  }
+
+  a:hover,
+  li.active > a {
+    color: #030D4F;
+    transition: $menu-hover-lines-transition;
+  }
+
+  a:hover::before,
+  .active a::before,
+  a:hover::after,
+  .active a::after {
+    width: 100%;
   }
 }
+
+$button-group-option-font-size: 1rem; // controls size of circle and text of option
+$button-group-option-button-gap: 0.35rem;
+$button-group-option-button-fontsize: rem-calc(18); // controls size of button and text of button
+
+.button-group-option {
+  position: relative;
+  align-items: center;
+  width: 100%;
+
+
+
+  .button {
+    font-size: $button-group-option-button-fontsize;
+  }
+
+  &:before {
+    content: attr(data-grouptype);
+    z-index: 1;
+    color: #030D4F;
+    display: inline-block;
+    font-size: $button-group-option-font-size;
+    padding: 0.25em;
+    border-radius: 5000px;
+    background: #ffffff;
+
+  }
+
+  .button + .button {
+    margin-left: $button-group-option-button-gap;
+  }
+}
+
+$gray: #808080;
+$white: #fff;
+$highlight: #4ec6cd;
+$nav-text-color: $gray;
+$header-font: 'Special Elite', cursive;
+$vert-seperate: 4rem;
+
+
+  .main-links {
+    padding-top: $vert-seperate;
+    margin-bottom: $vert-seperate;
+
+    h5 {
+      font-family: $header-font;
+      color: #030D4F;
+      @media screen and (max-width: 39.9375em) {
+        font-size: 1.5rem;
+      }
+    }
+
+    .columns {
+      position: relative;
+    }
+
+    .title-box {
+      text-align: center;
+      background: white;
+      color: $highlight;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      padding: .2rem 1rem;
+
+      .title-box-title {
+        margin-bottom: 0;
+
+       &:hover {
+         color: darken($highlight, 25%);
+         transition: color .3s ease-in;
+       }
+      }
+    }
+      @media screen and (max-width: 39.9375em) {
+       img {
+         height: 250px;
+         display: block;
+         margin: 2rem auto;
+       }
+    }
+  }

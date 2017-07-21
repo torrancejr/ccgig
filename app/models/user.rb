@@ -10,4 +10,5 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :username, presence: true
   validates :email, presence: true, format: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
+  validates :admin, inclusion: { in: [true, false] }
 end
