@@ -1,0 +1,12 @@
+<div>
+  <div>
+  <% if user_signed_in? %>
+      <%= link_to "Create Task", new_task_path %>
+          <% if @tasks %>
+            <% @tasks.each do |task| %>
+              <%= task.name %>
+            <% end %>
+          <% end %>
+        </div>
+    <% end %>
+  </div>

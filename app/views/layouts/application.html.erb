@@ -13,32 +13,41 @@
     <%= csrf_meta_tags %>
   </head>
 
+  <ul class="menu menu-hover-lines">
+  <li class="active"><%= link_to "Home", welcome_index_path %></a></li>
+  <li><a href="#">About Us</a></li>
+  <li><%= link_to "View Users", tasks_path %></a></li>
+  <li><a href="#">User Reviews</a></li>
+  <li><a href="#">Suggestions</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+
   <body>
-    <div>
-      <ul>
-          <% if user_signed_in? %>
-          <% if current_user.admin? %>
-          <li>
-            <%= link_to "View Users", admin_users_path %>
-          </li>
-          <% end %>
-          <li>
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-          </li>
-          <% else %>
-        </div>
-        <div class="button-group-option" >
-            <%= link_to "Sign In", new_user_session_path, class: "button success radius" %>
-            <%= link_to "Sign Up", new_user_registration_path, class: "button primary radius" %>
-        </div>
-          <% end %>
-      </ul>
-    </div>
-    <% flash.each do |key, value| %>
-          <%= value %>
-          <% end %>
-    <%= yield %>
+      <div>
+        <ul>
+            <% if user_signed_in? %>
+            <% if current_user.admin? %>
+            <li>
+              <%= link_to "View Users", admin_users_path %>
+            </li>
+            <% end %>
+            <li>
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+            </li>
+            <% else %>
+          </div>
+          <div class="button-group-option" >
+              <%= link_to "Sign In", new_user_session_path, class: "button success radius" %>
+              <%= link_to "Sign Up", new_user_registration_path, class: "button primary radius" %>
+          </div>
+            <% end %>
+        </ul>
+      </div>
+      <% flash.each do |key, value| %>
+            <%= value %>
+            <% end %>
+      <%= yield %>
 
-  </body>
+    </body>
 
-</html>
+  </html>

@@ -95,6 +95,7 @@ GEM
     ffi (1.9.18)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    foundation-datepicker-rails (0.0.2)
     foundation-rails (6.3.1.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
@@ -286,6 +287,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl
   font-awesome-sass
+  foundation-datepicker-rails (~> 0.0.1)
   foundation-rails
   jbuilder (~> 2.5)
   jquery-rails
@@ -311,4 +313,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.1
+   1.15.2

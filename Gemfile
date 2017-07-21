@@ -27,6 +27,7 @@ gem 'font-awesome-sass'
 gem 'coveralls'
 gem 'carrierwave', '~> 1.1'
 gem 'font-awesome-sass'
+gem 'foundation-datepicker-rails', '~> 0.0.1'
 
 group :test do
   gem 'coveralls', require: false
