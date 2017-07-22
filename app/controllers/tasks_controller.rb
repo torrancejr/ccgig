@@ -1,5 +1,14 @@
 class TasksController < ApplicationController
 
+  def index
+    @tasks = Task.all
+  end
+
+  def show
+  @task = Task.find(params[:id])
+  # @quote = @task.quotes
+end
+
   def new
     @task = Task.new
      @task.user_id = current_user
@@ -19,16 +28,6 @@ class TasksController < ApplicationController
        redirect_to new_task_path
      end
    end
-
-   def index
-     if user_session.nil?
-       @tasks = Task.all
-       @message = "All Tasks"
-     elsif params[:user_id] == current_user
-       @tasks = current_user.tasks
-       @message = "Tasks for #{current_user.name}"
-     end
-    end
 
  private
 

@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   resources :welcome
 
-  namespace :admin do
-    resources :users
+  resources :users do
+    resources :tasks
   end
 
   resources :tasks do
