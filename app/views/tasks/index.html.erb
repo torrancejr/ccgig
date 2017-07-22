@@ -1,11 +1,26 @@
 <div>
   <% if user_signed_in? %>
-      <%= link_to "Create Task", new_task_path %>
+    <%= link_to "Create Task", new_task_path, class: "button" %>
+      <% if @tasks = current_user.tasks %>
+        <h3>Your current Tasks</h3>
+        <% @tasks.each do |task| %>
+        <ul>
+          <li>
+            <%= task.name %>
+            <li><%= link_to "Edit Task", edit_task_path(task) %></a></li>
+          </li>
+        </ul>
       <% end %>
-        <% if @tasks %>
-          <% @tasks.each do |task| %>
-          <%= task.name %>
-          <%= link_to "Task Details",  task, class: "button"%>
-        <% end %>
-      <% end %>
-  </div>
+    <% end %>
+  <% end %>
+</div>
+<h3>All Available Tasks</h3>
+  <% @tasks.each do |task| %>
+  <ul>
+    <li>
+      <%= task.name %>
+
+      <li><%= link_to "Task Detail", task_path(task) %></a></li>
+    </li>
+  </ul>
+  <% end %>

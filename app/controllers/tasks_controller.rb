@@ -1,7 +1,11 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.all
+    if user_session.nil?
+      @tasks = Task.all
+    elsif params[:user_id] == current_user
+      @tasks = current_user.tasks
+    end
   end
 
   def show
@@ -32,7 +36,7 @@ end
  private
 
     def task_params
-      params.require(:task).permit(:name, :location, :description, :task_date, :user)
+      params.require(:task).permit(:name, :location, :description, :task_length, :task_date, :user)
     end
 
 end
