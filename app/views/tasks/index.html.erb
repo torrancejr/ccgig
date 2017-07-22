@@ -3,6 +3,7 @@
   <% if user_signed_in? %>
       <%= link_to "Create Task", new_task_path %>
           <% if @tasks %>
+          <% binding.pry %>
             <% @tasks.each do |task| %>
               <%= task.name %>
             <% end %>

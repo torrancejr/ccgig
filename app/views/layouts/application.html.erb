@@ -6,36 +6,35 @@
     <style>
     @import url('https://fonts.googleapis.com/css?family=Pacifico|Special+Elite');
     </style>
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "CCGIG" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
+<% unless action_name == "index" %>
   <ul class="menu menu-hover-lines">
   <li class="active"><%= link_to "Home", welcome_index_path %></a></li>
   <li><a href="#">About Us</a></li>
-  <li><%= link_to "View Users", tasks_path %></a></li>
-  <li><a href="#">User Reviews</a></li>
+  <li><%= link_to "View Tasks", tasks_path %></a></li>
+  <li><li><%= link_to "View Users", tasks_path %></a></li></a></li>
   <li><a href="#">Suggestions</a></li>
   <li><a href="#">Contact</a></li>
 </ul>
-
+<% end %>
   <body>
       <div>
         <ul>
-            <% if user_signed_in? %>
-            <% if current_user.admin? %>
-            <li>
-              <%= link_to "View Users", admin_users_path %>
-            </li>
-            <% end %>
-            <li>
-              <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-            </li>
-            <% else %>
-          </div>
+          <% if user_signed_in? %>
+          <% if current_user.admin? %>
+          <li>
+            <%= link_to "View Users", admin_users_path %>
+          </li>
+          <% end %>
+          <li>
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+          </li>
+          <% else %>
           <div class="button-group-option" >
               <%= link_to "Sign In", new_user_session_path, class: "button success radius" %>
               <%= link_to "Sign Up", new_user_registration_path, class: "button primary radius" %>
