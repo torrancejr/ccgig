@@ -10,12 +10,12 @@ class TasksController < ApplicationController
 
   def show
   @task = Task.find(params[:id])
-  # @quote = @task.quotes
+  @quote = @task.quotes
 end
 
   def new
     @task = Task.new
-     @task.user_id = current_user
+    @task.user_id = current_user
   end
 
   def create

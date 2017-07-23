@@ -3,3 +3,8 @@
 <h3><%= @task.description %></h3></br>
 <h3><%= @task.task_length %></h3></br>
 <h3><%= @task.task_date %></h3></br>
+
+
+      <%= link_to "View Quotes", task_quotes_path(@task) %>
+      <br />
+      <%= link_to "Submit New Quote", new_task_quote_path(@task) %>
