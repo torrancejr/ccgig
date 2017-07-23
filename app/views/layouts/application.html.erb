@@ -16,8 +16,10 @@
   <ul class="menu menu-hover-lines">
   <li class="active"><%= link_to "Home", welcome_index_path %></a></li>
   <li><a href="#">About Us</a></li>
-  <li><%= link_to "View Tasks", tasks_path %></a></li>
-  <li><li><%= link_to "View Users", tasks_path %></a></li></a></li>
+  <li><%= link_to "AVAILABLE WORK", tasks_path %></a></li>
+  <% if user_signed_in? %>
+  <li><li><%= link_to "YOUR TASKS",  user_tasks_path(current_user.tasks) %></a></li>
+  <% end %>
   <li><a href="#">Suggestions</a></li>
   <li><a href="#">Contact</a></li>
 </ul>

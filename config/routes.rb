@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :tasks do
     resources :quotes
   end
+
 end

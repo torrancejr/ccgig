@@ -33,6 +33,11 @@ end
      end
    end
 
+   def edit
+    @task = Task.find(params[:id])
+
+  end
+
  private
 
     def task_params
