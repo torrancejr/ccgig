@@ -1,16 +1,13 @@
 class TasksController < ApplicationController
 
   def index
-    if user_session.nil?
-      @tasks = Task.all
-    elsif params[:user_id] == current_user
-      @tasks = current_user.tasks
-    end
+    @tasks = Task.all
   end
 
   def show
-  @task = Task.find(params[:id])
-  @quote = @task.quotes
+    @tasks = Task.all
+    @task = Task.find(params[:id])
+    @quote = @task.quotes
 end
 
   def new

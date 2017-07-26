@@ -4,6 +4,7 @@
 <p>No quotes yet</p>
 <% else %>
 <% @quotes.each do |quote| %>
-<%= quote.quote %>
+Quoted Price: <%= quote.quote %> <br />
+From User: <%= quote.user_id %>
 <% end %>
 <% end %>
