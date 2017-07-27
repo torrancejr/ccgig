@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   end
 
   resources :tasks do
-    resources :quotes
+    resources :quotes do
+      put :winning_quote
+    end
   end
 
 end

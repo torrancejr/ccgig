@@ -6,5 +6,6 @@
 <% @quotes.each do |quote| %>
 Quoted Price: <%= quote.quote %> <br />
 From User: <%= quote.user_id %>
+<%= link_to "accept", task_quote_winning_quote_path(@task, quote.id), method: :put %>
 <% end %>
 <% end %>

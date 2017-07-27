@@ -3,6 +3,8 @@ class QuotesController < ApplicationController
   def index
     @task = Task.find(params[:task_id])
     @quotes = @task.quotes
+    @winner = @quotes.where(accepted_quote: :true)
+    @winner = @winner[0]
   end
 
   def new
@@ -25,15 +27,16 @@ class QuotesController < ApplicationController
     end
   end
 
-  def accept
-      @quote = Quote.find(params[:id])
-      @quote.update_attribute(:accepted, true)
+  def winning_quote
+      @task = Task.find(params[:task_id])
+      @quote = Quote.find(params[:quote_id])
+      @quote.update_attribute(:accepted_qoute, true)
       @quote.task.quotes.each do |rejected_quotes|
         rejected_quote.destroy unless rejected_quote == @quote   # destroys all be the accepted bid
       end
 
       flash[:notice] = "Quote accepted."
-      redirect_to task_quotes_path(@task)
+      redirect_to task_quotes_path(@quote)
   end
 
     def quote_params
