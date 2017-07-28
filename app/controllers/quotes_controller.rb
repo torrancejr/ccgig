@@ -33,6 +33,8 @@ class QuotesController < ApplicationController
       @task = Task.find(params[:task_id])
       @quote = Quote.find(params[:quote_id])
       @quote.update(:accepted_quote => true)
+      UserMailer.accepted_helper(@task, @quote).deliver_now
+      UserMailer.accepted_quote(@task, @quote).deliver_now
       flash[:notice] = "Quote accepted."
       redirect_to task_quotes_path(@quote)
   end

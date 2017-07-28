@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :username, presence: true
+  validates :phone, length: { is: 10 }, presence: true
   validates :email, presence: true, format: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
   validates :admin, inclusion: { in: [true, false] }
 end

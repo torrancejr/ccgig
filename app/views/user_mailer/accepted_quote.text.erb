@@ -1,0 +1,13 @@
+Congrats! You've been chosen by <%= @task.user.first_name %> to help with their job!
+
+The job was <%= @task.name %> in <%= @task.location %>
+
+The contact information for <%= @task.user.first_name %> is below.
+
+Contact Name:  <%= @task.user.first_name %> <%= @task.user.last_name %>
+Contact Email: <%= @task.user.email %>
+Contact Phone: <%= @task.user.phone %>
+
+Reach out to <%= @task.user.first_name %> ASAP and thanks for choosing JOBWELLDONE.
+
+Peace!
