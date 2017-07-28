@@ -9,6 +9,15 @@ class UserMailer < ApplicationMailer
     )
   end
 
+  def new_quote_client(task, quote)
+    @task = task
+    @quote = quote
+    mail(
+    to: task.user.email,
+    subject: "Someone submitted a new quote."
+    )
+  end
+
 def new_task(task)
     @task = task
     mail(

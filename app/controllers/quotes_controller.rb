@@ -22,6 +22,7 @@ class QuotesController < ApplicationController
     if @quote.save
       flash[:notice] = "Quote emailed!"
       UserMailer.new_quote(@task, @quote).deliver_now
+      UserMailer.new_quote_client(@task, @quote).deliver_now
       redirect_to task_path(@task)
     else
       flash[:notice] = @quote.errors.full_messages.to_sentence
