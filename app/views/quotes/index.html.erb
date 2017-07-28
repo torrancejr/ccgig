@@ -1,11 +1,17 @@
 <h1>Quotes</h1>
 <h4>Quotes for <%= @task.name %></h4>
-<% if @quotes.empty? %>
-<p>No quotes yet</p>
+<% if !@quotes.empty? %>
+<% if @winner %>
+<h2> Task is already completed. Sorry!</h2>
 <% else %>
 <% @quotes.each do |quote| %>
 Quoted Price: <%= quote.quote %> <br />
 From User: <%= quote.user_id %>
 <%= link_to "accept", task_quote_winning_quote_path(@task, quote.id), method: :put %>
 <% end %>
+<% end %>
+<% else %>
+<p>
+  You have no bids yet
+</p>
 <% end %>
