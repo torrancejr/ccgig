@@ -34,6 +34,13 @@ end
     @task = Task.find(params[:id])
    end
 
+   def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    flash[:notice] = "Task deleted"
+    redirect_to task_path(@task)
+  end
+
  private
 
     def task_params

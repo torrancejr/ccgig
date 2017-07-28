@@ -1,7 +1,9 @@
 <div>
     <h3>Task Details</h3>
     <% if current_user == @task.user %>
-    <%= link_to "View Quotes", task_quotes_path(@task) %>
+    <%= link_to "View Quotes", task_quotes_path(@task) %> <br  />
+    <%= link_to "Delete Task", task_path(@task), method: :delete %> <br  />
+    <%= link_to "Edit Review", edit_task_path(@task) %><br  />
     <% else %>
     <%= link_to "Submit New Quote", new_task_quote_path(@task) %>
     <% end %>
@@ -11,5 +13,8 @@
             <p>Description: <%= @task.description %></p>
             <p>Length of Job: <%= @task.task_length %></p>
             <p>Date: <%= @task.task_date %></p>
-
+            <% if current_user == @task.user %>
+            <%= link_to "View Quotes", task_quotes_path(@task) %> <br  />
+            <%= link_to "Delete Task", task_path(@task), method: :delete %> <br  />
+            <% end %>
 </div>
