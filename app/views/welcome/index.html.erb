@@ -11,14 +11,17 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+
   </head>
     <body>
-      <div class="wrapper">
-        <h3>DO YOU NEED HELP WITH AN EVERYDAY TASK? JOBWELLDONE CONNECTS NEIGHBORS WITH NEIGHBORS TO HELP
-          EACH OTHER GET THE JOB DONE. <br /><%= link_to "ENTER", new_welcome_path %> </h3>
-          <i class="fa fa-users fa-4x" aria-hidden="true"></i>
-          <i class="fa fa-handshake-o fa-4x" aria-hidden="true"></i>
-          <i class="fa fa-thumbs-o-up fa-4x" aria-hidden="true"></i>
+    <div class="hero-section">
+      <div class="hero-section-text">
+          <h3>DO YOU NEED HELP WITH AN EVERYDAY TASK? JOBWELLDONE CONNECTS NEIGHBORS WITH NEIGHBORS TO HELP
+            EACH OTHER GET THE JOB DONE. <br /><%= link_to "ENTER", new_welcome_path, class:"button" %> </h3>
+            <i class="fa fa-users fa-4x" aria-hidden="true"></i>
+            <i class="fa fa-handshake-o fa-4x" aria-hidden="true"></i>
+            <i class="fa fa-thumbs-o-up fa-4x" aria-hidden="true"></i>
       </div>
+    </div>
     </body>
 </html>

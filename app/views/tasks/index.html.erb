@@ -6,9 +6,15 @@
         <div>
           <% if @tasks %>
             <% @tasks.each do |task| %>
-              Task:<%= task.name %><br />
-              <%= link_to "Want the Job?", task_path(task) %><br />
-            <% end %>
-          <% end %>
-        <% end %>
+
+  <div class="card">
+
+    <div class="card-info">
+    <h5 class="card-title">Task: <%= task.name %><br /></h5>
+    <p class="card-author"><%= link_to "Click here for details", task_path(task) %></p>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+<% end %>
   </div>

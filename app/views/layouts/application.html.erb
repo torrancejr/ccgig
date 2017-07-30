@@ -27,16 +27,16 @@
           <% if user_signed_in? %>
           <% if current_user.admin? %>
           <li>
-            <%= link_to "View Users", admin_users_path %>
+            <%= link_to "View Users", admin_users_path, class:"button" %>
           </li>
           <% end %>
           <li>
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+            <%= link_to "Sign Out", destroy_user_session_path, class:"button", method: :delete %>
           </li>
           <% else %>
           <div class="button-group-option" >
-              <%= link_to "Sign In", new_user_session_path, class: "button success radius" %>
-              <%= link_to "Sign Up", new_user_registration_path, class: "button primary radius" %>
+              <%= link_to "Sign In", new_user_session_path, class: "button" %>
+              <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
           </div>
             <% end %>
         </ul>

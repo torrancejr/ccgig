@@ -21,13 +21,21 @@
 @import "font-awesome";
 @import "settings";
 @import "foundation";
+.button:hover,
+.button:focus {
+  background-color: darken(#E32D40, 15%);
+}
 
+body {
+  background: image-url('skulls.png');
+}
  h3
    {
    color: #030D4F;
     font-family: 'Special Elite', cursive;
   }
   .wrapper {
+
       text-align: center;
       position: absolute;
       top: 40%;
@@ -120,7 +128,7 @@
 
  $gray: #808080;
  $white: #fff;
- $highlight: #4ec6cd;
+ $highlight: #E32D40;
  $nav-text-color: $gray;
  $header-font: 'Special Elite', cursive;
  $vert-seperate: 4rem;
@@ -169,3 +177,212 @@
         }
      }
    }
+
+   $hero-height: 60vh;
+
+.hero-section {
+  background: image-url('work.jpeg') 50% no-repeat;
+  background-size: cover;
+  height: $hero-height;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .hero-section-text {
+    color: #E9F2F9;
+    text-shadow: 1px 1px 2px $black;
+  }
+}
+
+.sign-in-form {
+  padding: 1rem 1.5em;
+  border-radius: .5rem;
+  background-color: #152B3C;
+
+  h4 {
+    color: #E32D40;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-transform: uppercase
+  }
+
+  label {
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  input {
+    color: #152B3C;
+  }
+
+  input:focus {
+    opacity: .8;
+  }
+}
+
+.sign-in-form-username,
+.sign-in-form-password {
+  border-radius: 30px;
+  border: none;
+  opacity: .1;
+  transition: all ease .4s;
+}
+
+.sign-in-form-button {
+  border-radius: 30px;
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 100%;
+  padding: 1rem;
+  transition: all ease .4s;
+
+  &:hover {
+    background-color: #44c8ed;
+    border-color: #44c8ed;
+  }
+}
+
+$travel-feature-card-header-font-color: #152B3C;
+$travel-feature-card-body-color: $dark-gray;
+$travel-feature-card-header-background-color: #56524b;
+
+.travel-feature-card-header {
+  margin-top: 30px;
+  background-color: $travel-feature-card-header-background-color;
+  padding: 10px 15px 5px 45px;
+  position: relative;
+
+  @include breakpoint(small) {
+    margin-top: 15px;
+  }
+
+  &.icon:after {
+      font: normal normal normal 14px/1 FontAwesome;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $white;
+  }
+
+  &.hotel-icon:after {
+    content: "\f236";
+  }
+
+  &.car-icon:after {
+    content: "\f1b9"
+  }
+
+  .travel-feature-card-subtitle {
+    float: left;
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+}
+
+.travel-feature-card-header-controls {
+  a {
+    color: $white;
+  }
+  i {
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
+  }
+}
+
+.travel-feature-card-image {
+  margin-top: 5px;
+}
+
+.travel-feature-card-details{
+  background: #f0f0f0;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+  color: $travel-feature-card-body-color;
+
+  button.added-button {
+    color: #505050;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 0.8em;
+
+    img {
+      margin-right: 5px;
+    }
+  }
+
+  button.added-button:hover {
+    color: lighten(#505050, 0%);
+    border: 1px solid #747474;
+  }
+
+  button.add-button {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-size: 0.8em;
+  }
+}
+
+.travel-feature-card-content {
+  @include breakpoint(small only) {
+    padding-bottom: 15px;
+    border-bottom: 1px solid $medium-gray;
+  }
+}
+.travel-feature-card-price {
+  text-align: right;
+
+  @include breakpoint(small only) {
+    padding-top: 15px;
+
+    .price-subtext {
+      margin-bottom: 0px;
+    }
+  }
+
+  h6 {
+    font-weight: 600;
+    font-size: 1.3em;
+    color: $travel-feature-card-header-font-color;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.travel-feature-card-title {
+  font-weight: 500;
+  font-size: 1.25em;
+  color: $travel-feature-card-header-font-color;
+}
+
+.travel-feature-card-date-range {
+  font-size: 0.9em;
+  font-weight: 700;
+  color: $travel-feature-card-header-font-color;
+}
+
+.travel-feature-card-header-controls {
+  float: right;
+  i {
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
+  }
+}

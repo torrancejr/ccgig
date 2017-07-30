@@ -50,25 +50,27 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #030D4F,
-  secondary: #CEECEF,
-  success: #3adb76,
-  warning: #ffae00,
-  alert: #cc4b37,
+  primary: #152B3C,
+  secondary: #E32D40,
+  success: #59B390,
+  warning: #E47C5D,
+  alert: #E32D40,
 );
-$light-red: #FB0C06;
-$light-green: #22bb5b;
-$light-pink: #FF6B6B;
+$light-red: #E32D40;
+$light-orange: #E47C5D;
+$light-white: #F0DDAA;
+$light-babyblue: #9CC4E4;
+$light-green: #59B390;
 $light-yellow: #FFC52C;
-$light-navy: #030D4F;
+$light-navy: #152B3C;
 $light-blue: #CEECEF;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
-$body-background: #CEECEF;
-$body-font-color: #030D4F;
+$body-background: #152B3C;
+$body-font-color: #E32D40;
 $body-font-family: 'Special Elite', cursive;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -114,7 +116,7 @@ $header-font-family: $body-font-family;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: 'Pacifico', cursive;
-$header-color: #22bb5b;
+$header-color: #E32D40;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
@@ -147,7 +149,7 @@ $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-$anchor-color: #22bb5b;
+$anchor-color: #3A89C9;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
@@ -249,9 +251,9 @@ $breadcrumbs-item-slash: true;
 $button-padding: 0.85em 1em;
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $primary-color;
+$button-background: #152B3C;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
-$button-color: $white;
+$button-color: white;
 $button-color-alt: $black;
 $button-radius: $global-radius;
 $button-sizes: (
