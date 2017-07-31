@@ -1,4 +1,7 @@
 <h1>Quotes</h1>
+<div class="card">
+
+  <div class="card-info">
 <h4>Quotes for <%= @task.name %></h4>
 <% if !@quotes.empty? %>
 <% if @winner %>
@@ -15,3 +18,5 @@ From User: <%= quote.user_id %>
   You have no bids yet
 </p>
 <% end %>
+  </div>
+</div>
