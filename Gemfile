@@ -29,7 +29,7 @@ gem 'font-awesome-sass'
 gem 'carrierwave', '~> 1.1'
 gem 'font-awesome-sass'
 gem 'foundation-datepicker-rails', '~> 0.0.1'
-gem 'rails_12factor', group: :production
+gem 'rails_12factor'
 
 group :test do
   gem 'coveralls', require: false
