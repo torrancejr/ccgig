@@ -38,6 +38,7 @@
   <h5 class="travel-feature-card-subtitle">
     <% if current_user == @task.user %><br />
     <%= link_to "View Quotes", task_quotes_path(@task) %> <br  />
+    <%= link_to "Edit Task", edit_task_path(@task) %> <br  />
     <% else %>
     <%= link_to "Submit New Quote", new_task_quote_path(@task) %>
     <% end %>

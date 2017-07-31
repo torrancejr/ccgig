@@ -41,6 +41,17 @@ end
     redirect_to task_path(@task)
   end
 
+  def update
+      @task = Task.find(params[:id])
+      if @task.update_attributes(task_params)
+      flash[:notice] = "Task updated!"
+      redirect_to task_path(@task)
+    else
+      flash[:notice] = @task.errors.full_messages.to_sentence
+      render :edit
+    end
+  end
+
  private
 
     def task_params
