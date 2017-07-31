@@ -31,6 +31,10 @@ gem 'font-awesome-sass'
 gem 'foundation-datepicker-rails', '~> 0.0.1'
 gem 'rails_12factor'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :test do
   gem 'coveralls', require: false
 end
