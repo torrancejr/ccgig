@@ -181,7 +181,7 @@ body {
    $hero-height: 60vh;
 
 .hero-section {
-  background: image-url('https://s3.amazonaws.com/job-well-done-production/work.jpeg') 50% no-repeat;
+  background-image:url("https://s3.amazonaws.com/job-well-done-production/work.jpeg");
   background-size: cover;
   height: $hero-height;
   text-align: center;
