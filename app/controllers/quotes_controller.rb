@@ -18,6 +18,7 @@ class QuotesController < ApplicationController
     @quote = Quote.new(quote_params)
     @quote.task = @task
     @quote.user = current_user
+    @quote.username = current_user.username
 
     if @quote.save
       flash[:notice] = "Quote emailed!"
