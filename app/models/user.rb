@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :tasks
   has_many :quotes
+  has_many :reviews
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :username, presence: true
