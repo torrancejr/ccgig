@@ -7,7 +7,7 @@ $(function() {
   let app = document.getElementById( 'app' );
   if (app) {
   ReactDOM.render(
-      <h1>Something</h1>,
+      <h1>User Reviews Coming Soon</h1>,
       app
     );
   };
