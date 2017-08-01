@@ -17,7 +17,7 @@ class QuotesController < ApplicationController
     @task = Task.find(params[:task_id])
     @quote = Quote.new(quote_params)
     @quote.task = @task
-    @quote.user = @current_user
+    @quote.user = current_user
 
 
     if @quote.save
