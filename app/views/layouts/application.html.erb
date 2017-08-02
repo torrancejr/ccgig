@@ -12,7 +12,6 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-<% unless action_name == "index" %>
   <ul class="menu menu-hover-lines">
   <li class="active"><%= link_to "Home", welcome_index_path %></a></li>
   <li><%= link_to "AVAILABLE WORK", tasks_path %></a></li>
@@ -20,7 +19,7 @@
   <li><%= link_to "EDIT PROFILE", edit_user_registration_path %></a></li>
   <li><a href="#">Contact</a></li>
 </ul>
-<% end %>
+
   <body>
       <div>
         <ul>

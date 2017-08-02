@@ -11,7 +11,7 @@ class User extends Component {
       <div className="card">
         <div className="card-info">
           <h3>Username: {this.props.username}</h3>
-          <h2>Rating: {this.props.rating}</h2>
+          <h4>Rating: {this.props.rating}</h4>
         </div>
       </div>
     )
