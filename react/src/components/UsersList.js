@@ -97,11 +97,9 @@ getData() {
 
     return (
       <div>
-        <div className="expandable">
-          <div className="cards-container">
-            <div className="table-cards">
-              {finalUsers}
-            </div>
+        <div className="card">
+          <div className="card-info">
+            {finalUsers}
           </div>
         </div>
         <div className="pagination">

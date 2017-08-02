@@ -8,11 +8,11 @@ class User extends Component {
 
   render() {
     return (
-      <div className="table-card">
+      <div className="card">
+        <div className="card-info">
           <h3>Username: {this.props.username}</h3>
           <h2>Rating: {this.props.rating}</h2>
-
-
+        </div>
       </div>
     )
   }
