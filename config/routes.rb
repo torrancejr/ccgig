@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :reviews
+  resources :users do
+   resources :reviews, only: [:new, :create]
+ end
 
   namespace :api do
     namespace :v1 do
