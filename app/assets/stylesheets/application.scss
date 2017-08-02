@@ -386,3 +386,17 @@ $travel-feature-card-header-background-color: #56524b;
     margin-left: 10px;
   }
 }
+
+.pagination {
+  clear: both;
+  position: relative;
+  text-align: center;
+  li {
+    background-color: #152B3C;
+    border: 2px solid #E32D40;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+  }
+}

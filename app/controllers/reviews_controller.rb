@@ -1,12 +1,23 @@
 class ReviewsController < ApplicationController
+
+  def index
+    @reviews = Review.all
+  end
   def new
     @user = User.find(params[:user_id])
     @review = current_user.reviews.new
    end
 
    def create
+     @user = current_user
      @review = current_user.reviews.new(review_params)
-     @review.save
+     if @review.save
+      flash[:notice] = "Review added successfully"
+      redirect_to new_welcome_path(@user)
+    else
+      flash[:notice] = @review.errors.full_messages.to_sentence
+      render :new
+    end
    end
 
    private

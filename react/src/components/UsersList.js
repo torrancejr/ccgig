@@ -72,7 +72,6 @@ getData() {
             key={index}
             id={user.id}
             username={user.username}
-            rating={user.rating}
           />
         )
       });
