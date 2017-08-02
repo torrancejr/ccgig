@@ -10,8 +10,10 @@ class User extends Component {
     return (
       <div className="card">
         <div className="card-info">
+          <a href={`/users/${this.props.id}`}>
           <h3>Username: {this.props.username}</h3>
           <h4>Rating: {this.props.rating}</h4>
+        </a>
         </div>
       </div>
     )
