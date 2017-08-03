@@ -23,7 +23,7 @@ end
      if @task.save
        flash[:notice] = "Task Successfully Created"
        UserMailer.new_task(@task).deliver_now
-       redirect_to root_path
+       redirect_to new_welcome_path
      else
        flash[:notice] = @task.errors.full_messages.to_sentence
        redirect_to new_task_path
