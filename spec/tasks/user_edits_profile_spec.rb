@@ -8,7 +8,8 @@ feature "User updates profile" do
   scenario 'a user can update their current profile' do
     visit root_path
     sign_in_as(user)
-    click_link "Edit/Delete Profile"
+    click_link "ENTER"
+    visit new_welcome_path(user)
     visit edit_user_registration_path(user)
     fill_in 'First Name', with: "Ryan"
     fill_in 'Last Name', with: "Torrance"
@@ -26,9 +27,11 @@ feature "User updates profile" do
   scenario 'a user incorrectly updates their email' do
     visit root_path
     sign_in_as(user)
-    click_link "Edit/Delete Profile"
+    click_link "ENTER"
+    visit new_welcome_path(user)
+    click_link "EDIT PROFILE"
     visit edit_user_registration_path(user)
-    fill_in 'Email', with: "bobbytables123@gmail.com"
+    fill_in 'Email', with: "bobbytables123gmail.com"
     fill_in 'Password', with: "test2test2"
     fill_in 'Password Confirmation', with: "test2test2"
     fill_in 'Current Password', with: user.password
@@ -42,7 +45,9 @@ feature "User updates profile" do
   scenario 'a user incorrectly updates their password' do
     visit root_path
     sign_in_as(user)
-    click_link "Edit/Delete Profile"
+    click_link "ENTER"
+    visit new_welcome_path(user)
+    click_link "EDIT PROFILE"
     visit edit_user_registration_path(user)
     fill_in 'Password', with: "ab12"
     fill_in 'Password Confirmation', with: "ab12"

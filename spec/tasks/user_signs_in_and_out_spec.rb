@@ -29,6 +29,6 @@ feature "User signs in" do
     sign_in_as(user)
     click_link "Sign Out"
 
-    expect(page).to have_content "You have been signed out"
+    expect(page).to have_content "Signed out successfully"
   end
 end
