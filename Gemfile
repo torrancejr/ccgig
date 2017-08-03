@@ -22,6 +22,7 @@ gem 'fog'
 gem 'active_model_serializers'
 gem 'dotenv-rails'
 gem 'aws-sdk', '~> 2'
+gem 'coveralls', require: false
 gem 'rest-client'
 gem 'sendgrid-ruby'
 gem 'simplecov'

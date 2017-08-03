@@ -1,20 +1,18 @@
 <div class="row">
   <div class="small-10 columns small-centered">
     <br>
-    <% if user_signed_in? %>
-      <%= link_to "Create Task", new_task_path, class: "button" %>
+      <% if user_signed_in? %>
+        <%= link_to "Create Task", new_task_path, class: "button" %>
         <div>
           <% if @tasks %>
             <% @tasks.each do |task| %>
-
-  <div class="card">
-
-    <div class="card-info">
-    <h3 class="card-title">Task: <%= task.name %><br /></h3>
-    <p class="card-author"><%= link_to "Click here for details", task_path(task) %></p>
-    </div>
-  </div>
-  <% end %>
-<% end %>
-<% end %>
-  </div>
+              <div class="card">
+                <div class="card-info">
+                  <h3 class="card-title">Task: <%= task.name %><br /></h3>
+                  <p class="card-author"><%= link_to "Click here for details", task_path(task) %></p>
+                </div>
+              </div>
+        <% end %>
+        <% end %>
+      <% end %>
+</div>
