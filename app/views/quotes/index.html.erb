@@ -1,22 +1,20 @@
 <h3>Quotes for <%= @task.name %></h3>
 <div class="card">
-
   <div class="card-info">
-
-<% if !@quotes.empty? %>
-<% if @winner %>
-<h2> Task is already completed. Sorry!</h2>
-<% else %>
-<% @quotes.each do |quote| %>
-Quoted Price: <%= quote.quote %> <br />
-From User: <%= quote.user_id %>
-<%= button_to "Accept", task_quote_winning_quote_path(@task, quote.id), class: "button alert", method: :put %>
-<% end %>
-<% end %>
-<% else %>
-<p>
-  You have no offers yet..
-</p>
-<% end %>
+    <% if !@quotes.empty? %>
+    <% if @winner %>
+  <h2> Task is already completed. Sorry!</h2>
+    <% else %>
+        <% @quotes.each do |quote| %>
+          Quoted Price: <%= quote.quote %> <br />
+          From User: <%= quote.user_id %>
+        <%= button_to "Accept", task_quote_winning_quote_path(@task, quote.id), class: "button alert", method: :put %>
+      <% end %>
+    <% end %>
+    <% else %>
+      <p>
+        You have no offers yet..
+      </p>
+    <% end %>
   </div>
 </div>
