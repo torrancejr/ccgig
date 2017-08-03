@@ -14,5 +14,7 @@
 //= require foundation
 //= require jquery_ujs
 //= require_tree .
+//= require jquery.raty
+//= require ratyrate
 
 $(function(){ $(document).foundation(); });

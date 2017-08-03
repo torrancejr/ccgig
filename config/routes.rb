@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   root "welcome#index"
 
   devise_for :users
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-   resources :reviews, only: [:new, :create, :index]
+   resources :reviews, only: [:new, :create]
  end
 
   namespace :api do

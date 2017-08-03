@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
+  ratyrate_rateable "rating"
+  ratyrate_rater
+
   has_many :tasks
   has_many :quotes
   has_many :reviews

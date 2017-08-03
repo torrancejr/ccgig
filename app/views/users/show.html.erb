@@ -1,17 +1,12 @@
 
-
-<h3>Reviews for <%= @user.username %></h3>
+<h3>Ratings for <%= @user.username %></h3>
+<h5>You can only review each user once, and current amount of stars signifies his current overall rating</h5>
 <div class="row">
   <div class="small-10 columns small-centered">
-    <%= link_to "Add a Review",  new_user_review_path(@user), class: "button"%>
-  <% @reviews.each do |review| %>
-  <div class="card">
-
+    <div class="card">
     <div class="card-info">
-    <h3 class="card-title">Rating: <%= review.rating %><br /></h3>
-    <p class="card-author">Comments: <%= review.body %> </p>
+    <h3 class="card-title">Rating  : <%= rating_for @user, 'rating', star: 10, disable_after_rate: true, imdb_avg: true %><br /></h3>
     </div>
   </div>
-    <% end %>
   </div>
 </div>
