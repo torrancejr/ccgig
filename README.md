@@ -4,7 +4,7 @@
 
 # README
 
-Job Well Done is a Ruby based task finder website. The application connects neighbors with neighbors to help each other get the job done. Users can sign up and navigate through website to see tasks that need to be done, add their own, and all done anonymously until a quote is decided on a given task. At this point the users contact info is sent to the user that accepted given user quote.
+Job Well Done is a React/Ruby based task finder website. The application connects neighbors with neighbors to help each other get the job done. Users can sign up and navigate through website to see tasks that need to be done, add their own, and all done anonymously until a quote is decided on a given task. At this point the users contact info is sent to the user that accepted given user quote.
 
 Ryan Torrance
 
