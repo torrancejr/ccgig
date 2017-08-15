@@ -11,6 +11,8 @@ class TaskAdd extends Component {
       task: '',
       tasks: []
     }
+    this.retrieveUsers = this.retrieveUsers.bind(this);
+    this.retrieveTasks = this.retrieveUsers.bind(this);
     this.updateTask = this.updateTask.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDeleteTask = this.handleDeleteTask.bind(this);
@@ -109,9 +111,8 @@ class TaskAdd extends Component {
         <Task
         key={task.id}
         taskId={task.id}
+        taskUser={task.user_id}
         body={task.body}
-        userFirstName={user.first_name}
-        userLastName={user.last_name}
         users={users}
         handleDeleteTask={this.handleDeleteTask}
         />

@@ -19,7 +19,7 @@ class PostTask extends Component{
         </div>
         <div className="row">
           <div className="card-section">
-            {this.tasks.description}
+            {this.props.description}
           </div>
         </div>
       </div>
