@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import UsersList from './components/UsersList';
 import TasksList from './components/TasksList';
+import TaskAdd from './components/TaskAdd';
 
 $(function() {
   let app = document.getElementById( 'app' );
@@ -18,6 +19,15 @@ $(function() {
   if (app) {
   ReactDOM.render(
       <TasksList />,
+      app
+    );
+  };
+});
+$(function() {
+  let app = document.getElementById( 'taskadd' );
+  if (app) {
+  ReactDOM.render(
+      <TaskAdd />,
       app
     );
   };
