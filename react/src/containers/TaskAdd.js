@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
-import User from './User';
-import Task from './Task';
-import PostTask from './PostTask';
+import User from '../components/User';
+import Task from '../components/Task';
+import FormContainer from './FormContainer';
+import MealsList from '../components/MealsList';
+
 
 class TaskAdd extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      meals: [],
+      tasks: '',
       users: [],
-      task: '',
       tasks: []
     }
+    this.trackConsumption = this.trackConsumption.bind(this);
     this.retrieveUsers = this.retrieveUsers.bind(this);
-    this.retrieveTasks = this.retrieveUsers.bind(this);
+    this.retrieveTasks = this.retrieveTasks.bind(this);
     this.updateTask = this.updateTask.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDeleteTask = this.handleDeleteTask.bind(this);
+  }
+
+  trackConsumption(submission) {
+    this.setState({ meals: this.state.meals.concat(submission) })
   }
 
   updateTask(event) {
@@ -24,6 +32,7 @@ class TaskAdd extends Component {
   }
 
   handleSubmit(event) {
+    debugger
     $.ajax({
       url: '/api/v1/tasks',
       method: 'POST',
@@ -105,43 +114,30 @@ class TaskAdd extends Component {
       );
     });
 
-    let task = this.state.tasks.map(post => {
+    let task = this.state.tasks.map(task => {
       let user = users[users.findIndex(obj => obj.id == task.user_id)];
       return (
         <Task
         key={task.id}
-        taskId={task.id}
-        taskUser={task.user_id}
-        body={task.body}
-        users={users}
+        taskLocation={task.location}
+        taskName={task.name}
+        description={task.description}
+        taskDate={task.task_date}
+        taskLength={task.task_length}
         handleDeleteTask={this.handleDeleteTask}
+
         />
       );
     });
 
     return (
-      <div>
-        <div className="row">
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                <div className="small-12 columns medium-6 columns large-6 large-centered columns">
-                  <input
-                    className="task"
-                    placeholder="Task"
-                    type="text"
-                    value={this.state.task}
-                    onChange={this.updateTask}
-                  />
-                </div>
-              </label>
-            </form>
-        </div>
         <div className="row">
           <div className="small-12 columns medium-6 columns large-6 large-centered columns">
-            {task}
+            <h1 className="text-center">Task Tracker</h1>
+          <FormContainer trackConsumption={this.trackConsumption} />
+          <MealsList meals={this.state.meals} />
           </div>
         </div>
-      </div>
     );
   }
 };

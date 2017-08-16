@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import UsersList from './components/UsersList';
 import TasksList from './components/TasksList';
-import TaskAdd from './components/TaskAdd';
+import TaskAdd from './containers/TaskAdd';
 
 $(function() {
   let app = document.getElementById( 'app' );
