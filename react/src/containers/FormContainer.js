@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import Select from '../components/Select';
 import TextField from '../components/TextField';
 
+// create_table "tasks", force: :cascade do |t|
+//   t.string "name", null: false
+//   t.string "location", null: false
+//   t.string "description", default: "", null: false
+//   t.string "task_length"
+//   t.date "task_date", null: false
+//   t.integer "user_id"
+//   t.integer "quote_id"
+//   t.index ["user_id"], name: "index_tasks_on_user_id"
+// end
+
 class FormContainer extends Component {
   constructor(props) {
     super(props);
@@ -9,6 +20,9 @@ class FormContainer extends Component {
       errors: {},
       foodItemConsumed: '',
       taskLocation: '',
+      taskDescription: '',
+      taskLength: '',
+      taskName: '',
       mealOptions: ['Today', 'Tomorrow', 'Next Week', '2 Weeks'],
       mealSelected: ''
     }
@@ -16,8 +30,16 @@ class FormContainer extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleConsumedChange = this.handleConsumedChange.bind(this);
     this.handleMealSelection = this.handleMealSelection.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handleLengthChange = this.handleLengthChange.bind(this);
+    this.handleLocationChange = this.handleLocationChange.bind(this);
     this.validateConsumedChange = this.validateConsumedChange.bind(this);
     this.validateMealSelection = this.validateMealSelection.bind(this);
+    this.validateLocationChange = this.validateLocationChange.bind(this);
+    this.validateNameChange = this.validateNameChange.bind(this);
+    this.validateDescriptionChange = this.validateDescriptionChange.bind(this);
+    this.validateLengthChange = this.validateLengthChange.bind(this);
   }
 
   handleClearForm(event) {
@@ -25,6 +47,9 @@ class FormContainer extends Component {
     this.setState({
       errors: {},
       taskLocation: '',
+      taskName: '',
+      taskDescription: '',
+      taskLength: '',
       foodItemConsumed: '',
       mealSelected: ''
     })
@@ -34,11 +59,17 @@ class FormContainer extends Component {
     event.preventDefault();
     if (
       this.validateConsumedChange(this.state.foodItemConsumed) &&
+      this.validateNameChange(this.state.taskName) &&
+      this.validateLengthChange(this.state.taskLength) &&
       this.validateLocationChange(this.state.taskLocation) &&
+      this.validateDescriptionChange(this.state.taskDescription) &&
       this.validateMealSelection(this.state.mealSelected)
     ) {
       let formPayload = {
+        name: this.state.taskName,
         location: this.state.taskLocation,
+        description: this.state.taskDescription,
+        length: this.state.taskLength,
         food: this.state.foodItemConsumed,
         meal: this.state.mealSelected
       };
@@ -52,9 +83,24 @@ class FormContainer extends Component {
     this.setState({ foodItemConsumed: event.target.value })
   }
 
+  handleNameChange(event) {
+    this.validateNameChange(event.target.value)
+    this.setState({ taskName: event.target.value })
+  }
+
   handleLocationChange(event) {
     this.validateLocationChange(event.target.value)
     this.setState({ taskLocation: event.target.value })
+  }
+
+  handleDescriptionChange(event) {
+    this.validateDescriptionChange(event.target.value)
+    this.setState({ taskDescription: event.target.value })
+  }
+
+  handleLengthChange(event) {
+    this.validateLengthChange(event.target.value)
+    this.setState({ taskLength: event.target.value })
   }
 
   handleMealSelection(event) {
@@ -75,14 +121,53 @@ class FormContainer extends Component {
     }
   }
 
+  validateNameChange(name) {
+    if (name === '' || name === ' ') {
+      let newError = { taskName: 'Name may not be blank.' }
+      this.setState({ errors: Object.assign(this.state.errors, newError) })
+      return false
+    } else {
+      let errorState = this.state.errors
+      delete errorState.taskName
+      this.setState({ errors: errorState })
+      return true
+    }
+  }
+
   validateLocationChange(location) {
     if (location === '' || location === ' ') {
-      let newError = { taskLocation: 'Task may not be blank.' }
+      let newError = { taskLocation: 'Location may not be blank.' }
       this.setState({ errors: Object.assign(this.state.errors, newError) })
       return false
     } else {
       let errorState = this.state.errors
       delete errorState.taskLocation
+      this.setState({ errors: errorState })
+      return true
+    }
+  }
+
+  validateDescriptionChange(description) {
+    if (description === '' || description === ' ') {
+      let newError = { taskDescription: 'Description may not be blank.' }
+      this.setState({ errors: Object.assign(this.state.errors, newError) })
+      return false
+    } else {
+      let errorState = this.state.errors
+      delete errorState.taskDescription
+      this.setState({ errors: errorState })
+      return true
+    }
+  }
+
+  validateLengthChange(length) {
+    if (length === '' || length === ' ') {
+      let newError = { taskLength: 'Length may not be blank.' }
+      this.setState({ errors: Object.assign(this.state.errors, newError) })
+      return false
+    } else {
+      let errorState = this.state.errors
+      delete errorState.taskLength
       this.setState({ errors: errorState })
       return true
     }
@@ -115,9 +200,15 @@ class FormContainer extends Component {
         {errorDiv}
         <TextField
           content={this.state.foodItemConsumed}
-          label='Name of Task'
+          label='Consumed'
           name='consumed'
           handlerFunction={this.handleConsumedChange}
+        />
+        <TextField
+          content={this.state.taskName}
+          label='Name'
+          name='name'
+          handlerFunction={this.handleNameChange}
         />
         <TextField
           content={this.state.taskLocation}
@@ -126,16 +217,16 @@ class FormContainer extends Component {
           handlerFunction={this.handleLocationChange}
         />
         <TextField
-          content={this.state.foodItemConsumed}
+          content={this.state.taskDescription}
           label='Description'
-          name='consumed'
-          handlerFunction={this.handleConsumedChange}
+          name='description'
+          handlerFunction={this.handleDescriptionChange}
         />
         <TextField
-          content={this.state.foodItemConsumed}
+          content={this.state.taskLength}
           label='Time Estimate'
-          name='consumed'
-          handlerFunction={this.handleConsumedChange}
+          name='length'
+          handlerFunction={this.handleLengthChange}
         />
         <Select
           handlerFunction={this.handleMealSelection}
