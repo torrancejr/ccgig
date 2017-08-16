@@ -2,17 +2,6 @@ import React, { Component } from 'react';
 import Select from '../components/Select';
 import TextField from '../components/TextField';
 
-// create_table "tasks", force: :cascade do |t|
-//   t.string "name", null: false
-//   t.string "location", null: false
-//   t.string "description", default: "", null: false
-//   t.string "task_length"
-//   t.date "task_date", null: false
-//   t.integer "user_id"
-//   t.integer "quote_id"
-//   t.index ["user_id"], name: "index_tasks_on_user_id"
-// end
-
 class FormContainer extends Component {
   constructor(props) {
     super(props);
