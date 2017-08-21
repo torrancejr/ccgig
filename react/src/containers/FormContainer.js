@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Select from '../components/Select';
 import TextField from '../components/TextField';
 
+
+
 class FormContainer extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +17,8 @@ class FormContainer extends Component {
       mealOptions: ['Today', 'Tomorrow', 'Next Week', '2 Weeks'],
       mealSelected: ''
     }
+
+     this.handleChange = this.handleChange.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleConsumedChange = this.handleConsumedChange.bind(this);
@@ -42,6 +46,12 @@ class FormContainer extends Component {
       foodItemConsumed: '',
       mealSelected: ''
     })
+  }
+
+  handleChange(date) {
+    this.setState({
+      startDate: date
+    });
   }
 
   handleFormSubmit(event) {
@@ -224,6 +234,9 @@ class FormContainer extends Component {
           options={this.state.mealOptions}
           selectedOption={this.state.mealSelected}
         />
+
+
+}
         <div className="button-group">
           <button className="button" onClick={this.handleClearForm}>Clear</button>
           <input className="button" type="submit" value="Submit" />
