@@ -22,7 +22,6 @@ gem 'fog'
 gem 'active_model_serializers'
 gem 'dotenv-rails'
 gem 'aws-sdk', '~> 2'
-gem 'coveralls', require: false
 gem 'rest-client'
 gem 'sendgrid-ruby'
 gem 'simplecov'
@@ -30,7 +29,6 @@ gem 'font-awesome-sass'
 gem 'carrierwave', '~> 1.1'
 gem 'font-awesome-sass'
 gem 'foundation-datepicker-rails', '~> 0.0.1'
-gem 'rails_12factor'
 gem 'ratyrate'
 
 group :production do
