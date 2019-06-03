@@ -1,5 +1,6 @@
 <h3> Update Task</h3>
-  <div class="sign-in-form">
+<div class="container">
+  <div class="d-flex justify-content-center">
     <%= form_for @task do |f| %>
       <%= f.label :name, "Name of Task" %>
       <%= f.text_field :name %>
@@ -19,4 +20,5 @@
       <%= f.submit "Update Task", class: "button" %>
 
     <% end %>
+  </div>
 </div>

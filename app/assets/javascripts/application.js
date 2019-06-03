@@ -11,9 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery3
+//= require popper
 //= require foundation
 //= require jquery_ujs
 //= require_tree .
+//= require bootstrap
 //= require jquery.raty
 //= require ratyrate
 

@@ -50,8 +50,8 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #152B3C,
-  secondary: #E32D40,
+  primary: #0B0E31,
+  secondary: #1D2E4C,
   success: #59B390,
   warning: #E47C5D,
   alert: #E32D40,
@@ -70,7 +70,7 @@ $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: #152B3C;
-$body-font-color: #E32D40;
+$body-font-color: #0B0E31;
 $body-font-family: 'Special Elite', cursive;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -116,7 +116,7 @@ $header-font-family: $body-font-family;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: 'Pacifico', cursive;
-$header-color: #E32D40;
+$header-color: #0B0E31;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (

@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
     @import url('https://fonts.googleapis.com/css?family=Pacifico|Special+Elite');
-    </style>
-    <title><%= content_for?(:title) ? yield(:title) : "JOB WELL DONE" %></title>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-      <div>
-        <ul>
-          <% if user_signed_in? %>
-          <% if current_user.admin? %>
-            <li>
-              <%= link_to "View Users", admin_users_path, class:"button" %>
-            </li>
-          <% end %>
-            <li>
-              <%= link_to "Sign Out", destroy_user_session_path, class:"button", method: :delete %>
-            </li>
-          <% else %>
-            <div class="button-group-option" >
-                <%= link_to "Sign In", new_user_session_path, class: "button" %>
-                <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
-            </div>
-            <% end %>
-        </ul>
+  </style>
+  <title><%= content_for?(:title) ? yield(:title) : "JOB WELL DONE" %></title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div>
+  <ul>
+    <% if user_signed_in? %>
+      <% if current_user.admin? %>
+        <li>
+          <%= link_to "View Users", admin_users_path, class: "button" %>
+        </li>
+      <% end %>
+      <li>
+        <%= link_to "Sign Out", destroy_user_session_path, class: "btn btn-danger m-2", method: :delete %>
+      </li>
+    <% else %>
+      <div class="button-group-option m-3">
+        <%= link_to "Sign In", new_user_session_path, class: "btn btn-warning" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary ml-2" %>
       </div>
-      <% flash.each do |key, value| %>
-            <%= value %>
-            <% end %>
-      <%= yield %>
-    <div class="hero-section">
-      <div class="hero-section-text">
-          <h3>DO YOU NEED HELP WITH AN EVERYDAY TASK? JOBWELLDONE CONNECTS NEIGHBORS WITH NEIGHBORS TO HELP
-            EACH OTHER GET THE JOB DONE. <br /><%= link_to "ENTER", new_welcome_path, class:"button" %> </h3>
-            <i class="fa fa-users fa-4x" aria-hidden="true"></i>
-            <i class="fa fa-handshake-o fa-4x" aria-hidden="true"></i>
-            <i class="fa fa-thumbs-o-up fa-4x" aria-hidden="true"></i>
-      </div>
-    </div>
-  </body>
+    <% end %>
+  </ul>
+</div>
+<% flash.each do |key, value| %>
+  <%= value %>
+<% end %>
+<%= yield %>
+<div class="hero-section">
+  <div class="hero-section-text">
+    <h3>DO YOU NEED HELP WITH AN EVERYDAY TASK? JOBWELLDONE CONNECTS NEIGHBORS WITH NEIGHBORS TO HELP
+      EACH OTHER GET THE JOB DONE. <br/><%= link_to "ENTER", new_welcome_path, class: "btn btn-primary" %> </h3>
+    <i class="fa fa-users fa-4x" aria-hidden="true"></i>
+    <i class="fa fa-handshake-o fa-4x" aria-hidden="true"></i>
+    <i class="fa fa-thumbs-o-up fa-4x" aria-hidden="true"></i>
+  </div>
+</div>
+</body>
 </html>

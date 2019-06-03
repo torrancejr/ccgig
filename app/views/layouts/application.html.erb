@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-    <style>
-    @import url('https://fonts.googleapis.com/css?family=Pacifico|Special+Elite');
-    </style>
-    <title><%= content_for?(:title) ? yield(:title) : "JOB WELL DONE" %></title>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-  <ul class="menu menu-hover-lines">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Pacifico|Special+Elite');
+  </style>
+  <title><%= content_for?(:title) ? yield(:title) : "JOB WELL DONE" %></title>
+
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<ul class="menu menu-hover-lines">
   <li class="active"><%= link_to "Home", welcome_index_path %></a></li>
   <li><%= link_to "AVAILABLE WORK", tasks_path %></a></li>
   <li><%= link_to "REVIEW USERS", users_path %></a></li>
@@ -21,31 +21,40 @@
 
 </ul>
 
-  <body>
-      <div>
-        <ul>
-          <% if user_signed_in? %>
-          <% if current_user.admin? %>
-          <li>
-            <%= link_to "View Users", admin_users_path, class:"button" %>
-          </li>
-          <% end %>
-          <li>
-            <%= link_to "Sign Out", destroy_user_session_path, class:"button", method: :delete %>
-          </li>
-          <% else %>
-          <div class="button-group-option" >
-              <%= link_to "Sign In", new_user_session_path, class: "button" %>
-              <%= link_to "Sign Up", new_user_registration_path, class: "button" %>
-          </div>
-            <% end %>
-        </ul>
+<body>
+<div>
+  <ul>
+    <% if user_signed_in? %>
+      <% if current_user.admin? %>
+        <li>
+          <%= link_to "View Users", admin_users_path, class: "btn btn-secondary" %>
+        </li>
+      <% end %>
+      <li>
+        <%= link_to "Sign Out", destroy_user_session_path, class: "btn btn-danger", method: :delete %>
+      </li>
+    <% else %>
+      <div class="button-group-option mb-3">
+        <%= link_to "Sign In", new_user_session_path, class: "btn btn-warning" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary " %>
       </div>
-      <% flash.each do |key, value| %>
-            <%= value %>
-            <% end %>
-      <%= yield %>
+    <% end %>
+  </ul>
+</div>
 
-    </body>
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
 
-  </html>
+<% flash.each do |key, value| %>
+  <%= value %>
+<% end %>
+<%= yield %>
+
+
+</body>
+
+</html>
